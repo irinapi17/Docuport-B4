@@ -1,4 +1,4 @@
-
+@smoke
 Feature: Hello world
 
 Scenario: Hello world GET api Test
