@@ -31,14 +31,14 @@ public class Hooks {
 
 	}
 	
-	@After("@ui")
-	public void tearDown(Scenario scenario) {
-		// only takes a screenshot if the scenario fails
-		if (scenario.isFailed()) {
-			// taking a screenshot
-			final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-			scenario.embed(screenshot, "image/png");
-		}
-		//Driver.closeDriver();
-	}
+//	@After("@ui")
+//	public void tearDown(Scenario scenario) {
+//		// only takes a screenshot if the scenario fails
+//		if (scenario.isFailed()) {
+//			// taking a screenshot
+//			final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+//			scenario.embed(screenshot, "image/png");
+//		}
+//		//Driver.closeDriver();
+//	}
 }
