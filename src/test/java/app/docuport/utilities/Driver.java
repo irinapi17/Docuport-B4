@@ -4,8 +4,12 @@ package app.docuport.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
@@ -22,6 +26,11 @@ public class Driver {
     We make it static, because we want it to run before everything else, and also we will use it in a static method
      */
     private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
+
+    private static ChromeOptions chromeOptions;
+    private static WebDriver driver;
+
+
 
     /*
     Creating re-usable utility method that will return same 'driver' instance everytime we call it.
@@ -53,6 +62,22 @@ public class Driver {
                         driverPool.set(new FirefoxDriver());
                         driverPool.get().manage().window().maximize();
                         driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        break;
+                    case "remote-chrome-linux":
+                        try {
+                            // assign your grid server address
+                            String gridAddress = "3.92.199.191";
+                            URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
+                            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                            chromeOptions = new ChromeOptions();
+                            chromeOptions.addArguments("--headless");
+                            chromeOptions.addArguments("--no-sandbox");
+                            chromeOptions.addArguments("--disable-dev-shm-usage");
+                            desiredCapabilities.merge(chromeOptions);
+                            driver = new RemoteWebDriver(url, desiredCapabilities);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         break;
                 }
             }
