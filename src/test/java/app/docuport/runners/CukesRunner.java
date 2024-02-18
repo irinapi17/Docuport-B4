@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 public class CukesRunner {
        /*
     Command to run from terminal:
-    mvn test -Dcucumber.filter.tags=@docuport
+    mvn test -Dcucumber.filter.tags=@smoke
     */
 
     public static void main(String[] args) {
