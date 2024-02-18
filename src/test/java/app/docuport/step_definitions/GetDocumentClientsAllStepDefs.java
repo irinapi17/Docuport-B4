@@ -27,7 +27,7 @@ public class GetDocumentClientsAllStepDefs {
 
     @Then("status code is {string} and content type is {string}")
     public void status_code_is_and_content_type_is(String statusCode, String contentType) {
-        response.then().log().all()
+        response.then()
                 .statusCode(Integer.parseInt(statusCode))
                 .contentType(contentType);
 

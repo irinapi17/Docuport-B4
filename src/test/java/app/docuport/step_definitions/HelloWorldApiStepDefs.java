@@ -1,6 +1,7 @@
 package app.docuport.step_definitions;
 
 import app.docuport.utilities.ConfigurationReader;
+import app.docuport.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
@@ -31,6 +32,17 @@ public class HelloWorldApiStepDefs {
     @Then("hello world api response body contains {string}")
     public void hello_world_api_response_body_contains(String string) {
         response.then().body("message", is(equalTo(string)));
+    }
+
+
+
+
+
+
+
+    @Given("user is on google homepage")
+    public void user_is_on_google_homepage() {
+        Driver.getDriver().get("https://www.google.com/");
     }
 
 
