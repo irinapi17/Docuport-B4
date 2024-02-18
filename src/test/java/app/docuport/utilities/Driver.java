@@ -41,7 +41,7 @@ public class Driver {
 
         if (driverPool.get() == null) {
 
-            synchronized (Driver.class) {
+            //synchronized (Driver.class) {
             /*
             We read our browser type from configuration.properties file using
             .getProperty method we creating in ConfigurationReader class.
@@ -105,7 +105,7 @@ public class Driver {
 
                 }
             }
-        }
+        //}
 
         /*
         Same driver instance will be returned every time we call Driver.getDriver(); method
