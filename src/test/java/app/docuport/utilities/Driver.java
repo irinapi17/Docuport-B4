@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
@@ -79,6 +80,15 @@ public class Driver {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        break;
+                    case "headless":
+                        ChromeOptions options = new ChromeOptions();
+                        options.addArguments("--headless"); // enable headless mode
+                        // options.addArguments("--start-maximized"); // maximize
+                        WebDriverManager.chromedriver().setup();
+                        driverPool.set(new ChromeDriver(options));
+                        //driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
 
                 }
