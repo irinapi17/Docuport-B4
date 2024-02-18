@@ -62,6 +62,8 @@ public class Driver {
                     case "headless":
                         ChromeOptions options = new ChromeOptions();
                         options.addArguments("--headless"); // enable headless mode
+                        chromeOptions.addArguments("--no-sandbox");
+                        chromeOptions.addArguments("--disable-dev-shm-usage");
                         // options.addArguments("--start-maximized"); // maximize
                         WebDriverManager.chromedriver().create();
                         driverPool.set(new ChromeDriver(options));
