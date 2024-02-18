@@ -68,12 +68,7 @@ public class Driver {
                         //driverPool.get().manage().window().maximize();
                         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
-                    case "firefox-linux":
-                        WebDriverManager.firefoxdriver().create();
-                        driverPool.set(new FirefoxDriver());
-//                        driverPool.get().manage().window().maximize();
-                        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-                        break;
+
                     case "remote-chrome-linux":
                         try {
                             // assign your grid server address
@@ -101,7 +96,12 @@ public class Driver {
                         driverPool.set(new ChromeDriver());
                         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
-
+                    case "firefox-linux":
+                        WebDriverManager.firefoxdriver().create();
+                        driverPool.set(new FirefoxDriver());
+//                        driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                        break;
 
                 }
             }
