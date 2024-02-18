@@ -1,4 +1,4 @@
-Feature: API Feature Example
+Feature: Get /api/v1/document/clients/all
 
   @smoke @api
   Scenario: Get /api/v1/document/clients/all and assert index 0
