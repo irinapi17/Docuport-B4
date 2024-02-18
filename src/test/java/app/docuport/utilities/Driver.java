@@ -91,6 +91,7 @@ public class Driver {
                             chromeOptions.addArguments("--disable-dev-shm-usage");
 
                             RemoteWebDriver driver = new RemoteWebDriver(url, chromeOptions);
+                            driverPool.set(driver); // Set the created remote driver to the driver pool
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
