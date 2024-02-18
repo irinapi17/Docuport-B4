@@ -96,6 +96,12 @@
             <version>1.0.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v115</artifactId>
+            <version>4.13.0</version>
+        </dependency>
+
 
     </dependencies>
 
