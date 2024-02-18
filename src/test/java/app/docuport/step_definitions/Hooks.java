@@ -26,7 +26,7 @@ public class Hooks {
 	@Before("@ui")
 	public void setUp() {
 		// we put a logic that should apply to every scenario
-//		System.out.println("Setting up webdriver");
+		System.out.println("Setting up webdriver");
 		Driver.getDriver();
 
 	}
