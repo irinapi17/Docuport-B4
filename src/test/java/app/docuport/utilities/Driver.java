@@ -69,9 +69,9 @@ public class Driver {
                         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
                     case "firefox":
-                        WebDriverManager.firefoxdriver().setup();
+                        WebDriverManager.firefoxdriver().create();
                         driverPool.set(new FirefoxDriver());
-                        driverPool.get().manage().window().maximize();
+//                        driverPool.get().manage().window().maximize();
                         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
                     case "remote-chrome-linux":
