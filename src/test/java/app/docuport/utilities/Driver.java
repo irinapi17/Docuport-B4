@@ -92,13 +92,13 @@ public class Driver {
                         break;
                     case "chrome-linux":
 //                        WebDriverManager.chromedriver().setup();
-                        chromeOptions = new ChromeOptions();
-                        chromeOptions.addArguments("--headless");
-                        chromeOptions.addArguments("--no-sandbox");
-                        chromeOptions.addArguments("--disable-dev-shm-usage");
+//                        chromeOptions = new ChromeOptions();
+//                        chromeOptions.addArguments("--headless");
+//                        chromeOptions.addArguments("--no-sandbox");
+//                        chromeOptions.addArguments("--disable-dev-shm-usage");
 //                        driverPool.set(new ChromeDriver(chromeOptions));
-                        WebDriverManager.chromedriver().setup();
-                        driverPool.set(new ChromeDriver(chromeOptions));
+                        WebDriverManager.chromedriver().create();
+                        driverPool.set(new ChromeDriver());
                         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
 
