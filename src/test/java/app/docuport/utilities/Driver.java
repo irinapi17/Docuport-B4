@@ -41,7 +41,7 @@ public class Driver {
 
         if (driverPool.get() == null) {
 
-            //synchronized (Driver.class) {
+            synchronized (Driver.class) {
             /*
             We read our browser type from configuration.properties file using
             .getProperty method we creating in ConfigurationReader class.
@@ -92,8 +92,8 @@ public class Driver {
 //                        chromeOptions.addArguments("--no-sandbox");
 //                        chromeOptions.addArguments("--disable-dev-shm-usage");
 //                        driverPool.set(new ChromeDriver(chromeOptions));
-                        WebDriverManager.chromedriver().create();
-                        driverPool.set(new ChromeDriver());
+
+                        driverPool.set(WebDriverManager.chromedriver().create());
                         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
                     case "firefox-linux":
@@ -105,7 +105,7 @@ public class Driver {
 
                 }
             }
-        //}
+        }
 
         /*
         Same driver instance will be returned every time we call Driver.getDriver(); method
