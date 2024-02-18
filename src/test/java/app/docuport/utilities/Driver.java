@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -63,39 +64,39 @@ public class Driver {
                         driverPool.get().manage().window().maximize();
                         driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                         break;
-                    case "remote-chrome-linux":
-                        try {
-                            // assign your grid server address
-                            String gridAddress = "3.92.199.191";
-                            URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
-                            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-                            chromeOptions = new ChromeOptions();
-                            chromeOptions.addArguments("--headless");
-                            chromeOptions.addArguments("--no-sandbox");
-                            chromeOptions.addArguments("--disable-dev-shm-usage");
-                            desiredCapabilities.merge(chromeOptions);
-                            driver = new RemoteWebDriver(url, desiredCapabilities);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        break;
 //                    case "remote-chrome-linux":
 //                        try {
-//                            // Assign your grid server address
+//                            // assign your grid server address
 //                            String gridAddress = "3.92.199.191";
 //                            URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
-//
-//                            ChromeOptions chromeOptions = new ChromeOptions();
+//                            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+//                            chromeOptions = new ChromeOptions();
 //                            chromeOptions.addArguments("--headless");
 //                            chromeOptions.addArguments("--no-sandbox");
 //                            chromeOptions.addArguments("--disable-dev-shm-usage");
-//
-//                            RemoteWebDriver driver = new RemoteWebDriver(url, chromeOptions);
-//                            driverPool.set(driver); // Set the created remote driver to the driver pool
+//                            desiredCapabilities.merge(chromeOptions);
+//                            driver = new RemoteWebDriver(url, desiredCapabilities);
 //                        } catch (Exception e) {
 //                            e.printStackTrace();
 //                        }
 //                        break;
+                    case "remote-chrome-linux":
+                        try {
+                            // Assign your grid server address
+                            String gridAddress = "3.92.199.191";
+                            URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
+
+                            ChromeOptions chromeOptions = new ChromeOptions();
+                            chromeOptions.addArguments("--headless");
+                            chromeOptions.addArguments("--no-sandbox");
+                            chromeOptions.addArguments("--disable-dev-shm-usage");
+
+                            RemoteWebDriver driver = new RemoteWebDriver(url, chromeOptions);
+                            driverPool.set(driver); // Set the created remote driver to the driver pool
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        }
+                        break;
                 }
             }
         }
