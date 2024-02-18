@@ -87,7 +87,7 @@ public class Driver {
                             URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
 
                             ChromeOptions chromeOptions = new ChromeOptions();
-                            chromeOptions.addArguments("--headless");
+//                            chromeOptions.addArguments("--headless");
                             chromeOptions.addArguments("--no-sandbox");
                             chromeOptions.addArguments("--disable-dev-shm-usage");
 
