@@ -75,7 +75,7 @@ public class Driver {
                             chromeOptions.addArguments("--no-sandbox");
                             chromeOptions.addArguments("--disable-dev-shm-usage");
                             desiredCapabilities.merge(chromeOptions);
-                            new RemoteWebDriver(desiredCapabilities);
+                            driver = new RemoteWebDriver(desiredCapabilities);
 //                            driver = new RemoteWebDriver(url, desiredCapabilities);
                         } catch (Exception e) {
                             e.printStackTrace();
