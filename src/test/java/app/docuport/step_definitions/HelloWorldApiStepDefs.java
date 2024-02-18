@@ -34,17 +34,4 @@ public class HelloWorldApiStepDefs {
         response.then().body("message", is(equalTo(string)));
     }
 
-
-
-
-
-
-
-    @Given("user is on google homepage")
-    public void user_is_on_google_homepage() {
-        Driver.getDriver().get("https://www.google.com/");
-    }
-
-
-
 }
