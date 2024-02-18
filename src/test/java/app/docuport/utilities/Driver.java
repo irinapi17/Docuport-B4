@@ -97,7 +97,7 @@ public class Driver {
                         chromeOptions.addArguments("--no-sandbox");
                         chromeOptions.addArguments("--disable-dev-shm-usage");
 //                        driverPool.set(new ChromeDriver(chromeOptions));
-                        WebDriverManager.chromedriver().create();
+                        WebDriverManager.chromedriver().setup();
                         driverPool.set(new ChromeDriver(chromeOptions));
                         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
