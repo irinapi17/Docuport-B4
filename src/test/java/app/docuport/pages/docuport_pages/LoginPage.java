@@ -87,5 +87,6 @@ public class LoginPage {
         this.password.sendKeys(password);
         BrowserUtilities.waitForClickable(loginButton, DocuportConstants.small);
         loginButton.click();
+        BrowserUtilities.waitFor(1 / 2);
     }
 }

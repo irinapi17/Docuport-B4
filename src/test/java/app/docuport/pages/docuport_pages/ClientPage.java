@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ClientPage extends BasePage{
+public class ClientPage extends BasePage {
 
     @FindBy(xpath = "//span[.='Create new client']")
     public WebElement createNewClientButton;
@@ -53,36 +53,34 @@ public class ClientPage extends BasePage{
     public WebElement searchName;
 
 
-
-
-
-
     @FindBy(xpath = "//span[.=' Save ']/..")
     public WebElement saveButton;
 
-    public WebElement getCreateUserBox (){
+    public WebElement getCreateUserBox() {
         return Driver.getDriver().findElement(By.xpath("//label[.='Create new user']/preceding-sibling::div"));
     }
 
 
-    public void createPersonalClient (String firstName, String lastName, String emailAddress,String phoneNumber, String password ){
+    public void createPersonalClient(String firstName, String lastName, String emailAddress, String phoneNumber, String password) {
         BrowserUtilities.waitForClickable(createNewClientButton, 5).click();
-            BrowserUtilities.waitForClickable(personalOption, 5).click();
-            BrowserUtilities.waitFor(1);
-            BrowserUtilities.waitForVisibility(getCreateUserBox(), 5);
-            BrowserUtilities.clickWithJS(getCreateUserBox());
+        BrowserUtilities.waitForClickable(personalOption, 5).click();
+        BrowserUtilities.waitFor(1);
+        BrowserUtilities.waitForVisibility(getCreateUserBox(), 5);
+        BrowserUtilities.clickWithJS(getCreateUserBox());
 
-            firstNameInput.sendKeys(firstName);
-            lastNameInput.sendKeys(lastName);
-            this.emailAddress.sendKeys(emailAddress);
-            advisorDropDown.click();
-            b1g1Option.click();
-            this.phoneNumber.sendKeys(phoneNumber);
-            this.password.sendKeys(password);
-            confirmPassword.sendKeys(password);
-            saveButton.click();
+        firstNameInput.sendKeys(firstName);
+        lastNameInput.sendKeys(lastName);
+        this.emailAddress.sendKeys(emailAddress);
+        advisorDropDown.click();
+        b1g1Option.click();
+        this.phoneNumber.sendKeys(phoneNumber);
+        this.password.sendKeys(password);
+        confirmPassword.sendKeys(password);
+        saveButton.click();
+        BrowserUtilities.waitFor(1 / 2);
     }
-    public void createBusinessClient (String firstName, String lastName, String emailAddress,String phoneNumber, String password, String companyName ){
+
+    public void createBusinessClient(String firstName, String lastName, String emailAddress, String phoneNumber, String password, String companyName) {
         BrowserUtilities.waitForClickable(createNewClientButton, 5).click();
         BrowserUtilities.waitForClickable(businessOption, 5).click();
         BrowserUtilities.waitFor(1);
@@ -99,6 +97,7 @@ public class ClientPage extends BasePage{
         this.password.sendKeys(password);
         confirmPassword.sendKeys(password);
         saveButton.click();
+        BrowserUtilities.waitFor(1 / 2);
     }
 
 

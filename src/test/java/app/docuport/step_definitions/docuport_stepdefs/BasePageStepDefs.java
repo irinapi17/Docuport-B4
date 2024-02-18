@@ -71,6 +71,7 @@ public class BasePageStepDefs {
     public void user_validates_text_is_displayed(String text) {
         BrowserUtilities.waitForVisibility(basePage.getElement(text), DocuportConstants.large);
         Assert.assertTrue(basePage.getElement(text).isDisplayed());
+        BrowserUtilities.waitFor(1 / 2);
     }
 
     @Then("user chooses account from drop down")

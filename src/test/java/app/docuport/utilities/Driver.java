@@ -57,13 +57,22 @@ public class Driver {
                         WebDriverManager.chromedriver().setup();
                         driverPool.set(new ChromeDriver());
 //                        driverPool.get().manage().window().maximize();
-                        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                        break;
+                    case "headless":
+                        ChromeOptions options = new ChromeOptions();
+                        options.addArguments("--headless"); // enable headless mode
+                        // options.addArguments("--start-maximized"); // maximize
+                        WebDriverManager.chromedriver().setup();
+                        driverPool.set(new ChromeDriver(options));
+                        //driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
                     case "firefox":
                         WebDriverManager.firefoxdriver().setup();
                         driverPool.set(new FirefoxDriver());
                         driverPool.get().manage().window().maximize();
-                        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
                     case "remote-chrome-linux":
                         try {
@@ -81,15 +90,15 @@ public class Driver {
                             e.printStackTrace();
                         }
                         break;
-                    case "headless":
-                        ChromeOptions options = new ChromeOptions();
-                        options.addArguments("--headless"); // enable headless mode
-                        // options.addArguments("--start-maximized"); // maximize
+                    case "chrome-linux":
                         WebDriverManager.chromedriver().setup();
-                        driverPool.set(new ChromeDriver(options));
-                        //driverPool.get().manage().window().maximize();
-                        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                        chromeOptions = new ChromeOptions();
+                        chromeOptions.addArguments("--headless");
+                        chromeOptions.addArguments("--no-sandbox");
+                        chromeOptions.addArguments("--disable-dev-shm-usage");
+                        driverPool.set(new ChromeDriver(chromeOptions));
                         break;
+
 
                 }
             }

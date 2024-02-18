@@ -141,8 +141,8 @@ public class BasePage extends LoginPage {
                 BrowserUtilities.waitForVisibility(Driver.getDriver().findElement(By.xpath("//button[@class='pa-0 v-btn v-btn--rounded v-btn--text theme--light v-size--default gray--text']")), DocuportConstants.small).click();
                 break;
             case "continue":
-                BrowserUtilities.waitForClickable(continueButton, DocuportConstants.large);
-                BrowserUtilities.clickWithJS(continueButton);
+                BrowserUtilities.waitForClickable(Driver.getDriver().findElement(By.xpath("//button[@type='submit']//span")), DocuportConstants.large);
+                BrowserUtilities.clickWithJS(Driver.getDriver().findElement(By.xpath("//button[@type='submit']//span")));
                 BrowserUtilities.waitFor(1 / 2);
                 break;
 
@@ -174,6 +174,7 @@ public class BasePage extends LoginPage {
                 LOG.error("No such " + button + "exists");
                 throw new IllegalArgumentException();
         }
+        BrowserUtilities.waitFor(1);
     }
 
     public String getRowsPerPage (){
