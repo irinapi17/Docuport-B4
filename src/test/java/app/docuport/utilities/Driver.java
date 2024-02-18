@@ -86,14 +86,14 @@ public class Driver {
                         }
                         break;
                     case "chrome-linux":
-//                        WebDriverManager.chromedriver().setup();
+                        WebDriverManager.chromedriver().setup();
 //                        chromeOptions = new ChromeOptions();
 //                        chromeOptions.addArguments("--headless");
 //                        chromeOptions.addArguments("--no-sandbox");
 //                        chromeOptions.addArguments("--disable-dev-shm-usage");
 //                        driverPool.set(new ChromeDriver(chromeOptions));
-
-                        driverPool.set(WebDriverManager.chromedriver().create());
+                        WebDriver driver = WebDriverManager.chromedriver().create();
+                        driverPool.set(driver);
                         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                         break;
                     case "firefox-linux":
