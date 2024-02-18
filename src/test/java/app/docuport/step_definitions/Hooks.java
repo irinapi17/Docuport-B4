@@ -26,19 +26,19 @@ public class Hooks {
 	@Before("@ui")
 	public void setUp() {
 		// we put a logic that should apply to every scenario
-		System.out.println("Setting up webdriver");
+//		System.out.println("Setting up webdriver");
 		Driver.getDriver();
 
 	}
 	
-//	@After("@ui")
-//	public void tearDown(Scenario scenario) {
-//		// only takes a screenshot if the scenario fails
-//		if (scenario.isFailed()) {
-//			// taking a screenshot
-//			final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-//			scenario.embed(screenshot, "image/png");
-//		}
-//		//Driver.closeDriver();
-//	}
+	@After("@ui")
+	public void tearDown(Scenario scenario) {
+		// only takes a screenshot if the scenario fails
+		if (scenario.isFailed()) {
+			// taking a screenshot
+			final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png");
+		}
+		Driver.closeDriver();
+	}
 }

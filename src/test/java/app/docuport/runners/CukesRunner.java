@@ -1,5 +1,6 @@
 package app.docuport.runners;
 
+import app.docuport.utilities.Driver;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -20,6 +21,10 @@ public class CukesRunner {
     Command to run from terminal:
     mvn test -Dcucumber.filter.tags=@docuport
     */
+
+    public static void main(String[] args) {
+        Driver.getDriver().get("https://www.google.com/");
+    }
 }
 
 
