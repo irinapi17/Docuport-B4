@@ -338,7 +338,7 @@ public class Driver {
                     options.addArguments("--start-maximized"); // maximized
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver(options));
-                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperty("timeout"))));
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
 
                 /**
