@@ -345,7 +345,7 @@ public class Driver {
                  * These added because of EC@2 Jenkins on Linux was not running the ones above because of graphical issues.
                  */
                 case "chrome-linux":
-                    WebDriverManager.chromedriver().setup();
+                    WebDriverManager.chromedriver().clearDriverCache().setup();
                     chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("--no-sandbox");
