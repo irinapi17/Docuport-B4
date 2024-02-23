@@ -321,10 +321,10 @@ public class Driver {
             String browserType = ConfigurationReader.getProperty("browser");
             switch (browserType.toLowerCase()){
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                    WebDriverManager.chromedriver().clearDriverCache().setup();
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
-                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperty("timeout"))));
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(10)));
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
@@ -335,7 +335,7 @@ public class Driver {
                 case "headless":
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless"); // enable headless made
-                    options.addArguments("--start-maximized"); // maximized
+//                    options.addArguments("--start-maximized"); // maximized
                     options.addArguments("--no-sandbox");
                     options.addArguments("--disable-dev-shm-usage");
                     WebDriverManager.chromedriver().clearDriverCache().setup();
@@ -347,12 +347,14 @@ public class Driver {
                  * These added because of EC@2 Jenkins on Linux was not running the ones above because of graphical issues.
                  */
                 case "chrome-linux":
-                    WebDriverManager.chromedriver().setup();
-                    chromeOptions = new ChromeOptions();
-                    chromeOptions.addArguments("--headless");
-                    chromeOptions.addArguments("--no-sandbox");
-                    chromeOptions.addArguments("--disable-dev-shm-usage");
-                    driver = new ChromeDriver(chromeOptions);
+                    ChromeOptions options1 = new ChromeOptions();
+//                    options.addArguments("--headless"); // enable headless made
+//                    options.addArguments("--start-maximized"); // maximized
+                    options1.addArguments("--no-sandbox");
+                    options1.addArguments("--disable-dev-shm-usage");
+                    WebDriverManager.chromedriver().clearDriverCache().setup();
+                    driverPool.set(new ChromeDriver(options1));
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
 
                 case "remote-chrome-linux":

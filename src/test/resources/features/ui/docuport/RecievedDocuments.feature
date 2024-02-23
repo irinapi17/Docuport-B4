@@ -1,6 +1,5 @@
 Feature: Received Docs and My Uploads Feature
 
-  @B2G1-245 @B2G1-246 @docuport @ui @smoke
   Scenario Outline: Validate Received Documents and My Uploads for all userTypes
     When user logs into "<userType>"
     And user navigates to "Received docs"
@@ -14,6 +13,7 @@ Feature: Received Docs and My Uploads Feature
       | advisor    |
       | employee   |
 
+  @B2G1-245 @B2G1-246 @docuport @ui @smoke
   Scenario Outline: Validate Received Documents and My Uploads for all userTypes (CONVERSION)
     When user logs into "<userType>"
 #    And the user navigates to "Received docs"
