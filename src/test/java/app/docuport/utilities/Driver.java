@@ -336,7 +336,7 @@ public class Driver {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless"); // enable headless made
                     options.addArguments("--start-maximized"); // maximized
-                    WebDriverManager.chromedriver().setup();
+                    WebDriverManager.chromedriver().clearDriverCache().setup();
                     driverPool.set(new ChromeDriver(options));
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
