@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/features/",
         glue = "app/docuport/step_definitions/",
-        tags = "@smoke",
+        tags = "@B2G1-225",
         dryRun = false
 )
 public class CukesRunner {
@@ -21,10 +21,6 @@ public class CukesRunner {
     Command to run from terminal:
     mvn test -Dcucumber.filter.tags=@smoke
     */
-
-    public static void main(String[] args) {
-        Driver.getDriver().get("https://www.google.com/");
-    }
 }
 
 
