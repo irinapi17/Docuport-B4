@@ -10,7 +10,7 @@ Feature: validate left navigate items of docuport
 #      | employee   | [Home, Received docs, My uploads, Clients, Users, Bookkeeping, 1099 Form, Reconciliations]                     |
 
 
-  @US# @B2G1-225 @B2G1-226 @docuport @ui @smoke
+  @US# @B2G1-225 @B2G1-226 @docuport @ui
   Scenario Outline: Login and validate the left navigation items
     When user logs into "<userType>"
     Then user validates expected navigation items "<ExpectedLeftNavigation>"
