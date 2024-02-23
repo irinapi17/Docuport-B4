@@ -18,7 +18,6 @@ import java.util.Map;
 
 public class LoginStepDefs {
     BasePage basePage = new BasePage();
-    Actions actions = new Actions(Driver.getDriver());
 
     //------------------ Applies to all
     @Given("user is on Docuport login page")

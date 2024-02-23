@@ -336,6 +336,8 @@ public class Driver {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless"); // enable headless made
                     options.addArguments("--start-maximized"); // maximized
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
                     WebDriverManager.chromedriver().clearDriverCache().setup();
                     driverPool.set(new ChromeDriver(options));
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -345,7 +347,7 @@ public class Driver {
                  * These added because of EC@2 Jenkins on Linux was not running the ones above because of graphical issues.
                  */
                 case "chrome-linux":
-                    WebDriverManager.chromedriver().clearDriverCache().setup();
+                    WebDriverManager.chromedriver().setup();
                     chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("--no-sandbox");
