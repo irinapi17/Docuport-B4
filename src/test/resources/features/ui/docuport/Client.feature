@@ -1,4 +1,3 @@
-@B2G1-236 @B2G1-237 @docuport @ui @smoke
 Feature: Client creation feature
 
   Scenario: Validate client creation - personal
