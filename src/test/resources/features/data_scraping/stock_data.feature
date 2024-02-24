@@ -1,5 +1,5 @@
 @ui @stockData
-Feature: Scrape stock data from yahoo finance and print in console
+Feature: Scrape stock data and print in console
 
   Scenario: Print market index's from yahoo finance
     Given user navigates to Yahoo Finance most active
