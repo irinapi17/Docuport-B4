@@ -22,6 +22,7 @@ public class YahooFinance {
 
     @Then("print the market index's information")
     public void print_the_market_index_s_information() {
+        System.out.println();
         System.out.println("Market Index Information");
         printMarketIndexInformation();
         System.out.println();
