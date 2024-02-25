@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/features/",
         glue = "app/docuport/step_definitions/",
-        tags = "@stockData",
+        tags = "",
         dryRun = false
 )
 public class CukesRunner {
