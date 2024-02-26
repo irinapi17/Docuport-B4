@@ -3,9 +3,9 @@ package app.docuport.step_definitions;
 
 import app.docuport.utilities.DBUtils;
 import app.docuport.utilities.Driver;
-import cucumber.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -37,7 +37,7 @@ public class Hooks {
 		if (scenario.isFailed()) {
 			// taking a screenshot
 			final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-			scenario.embed(screenshot, "image/png");
+			scenario.attach(screenshot, "Failed scenario screenshot","image/png");
 		}
 		Driver.closeDriver();
 	}

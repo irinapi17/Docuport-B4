@@ -17,7 +17,7 @@ Feature: validate left navigate items of docuport
     Then logout
     Examples:
       | userType   | ExpectedLeftNavigation                                                                                         |
-      | client     | [Home, Received docs, My uploads, Invitations, 1099 Form]                                                      |
+      | client     | [Home, Received docs, My uploads, Invitations]                                                      |
       | supervisor | [Home, Received docs, My uploads, Clients, Users, Leads, Bookkeeping, 1099 Form, Reconciliations]              |
       | advisor    | [Home, Received docs, My uploads, Clients, Invitations, Users, Leads, Bookkeeping, 1099 Form, Reconciliations] |
       | employee   | [Home, Received docs, My uploads, Clients, Users, Bookkeeping, 1099 Form, Reconciliations]                     |

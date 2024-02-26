@@ -39,8 +39,8 @@ public class GetDocumentClientsAllStepDefs {
 
         assertThat(actualList.get(index).toString(),is(equalTo(expected.toString())));
 
-        assertThat(actualList.get(index).get("id"),is(equalTo(31)));
-        assertThat(actualList.get(index).get("name"),is(equalTo("3tseT")));
+        assertThat(actualList.get(index).get("id"),is(equalTo(1948)));
+        assertThat(actualList.get(index).get("name"),is(equalTo("$randomName")));
         assertThat(actualList.get(index).get("clientType"),is(equalTo(1)));
         assertThat(actualList.get(index).get("isActive"),is(equalTo(true)));
         assertThat(actualList.get(index).get("advisor"),is(equalTo(null)));

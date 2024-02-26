@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                 "junit:target/junit/junit-report.xml",
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/features/",
-        glue = "app/docuport/step_definitions/",
+        glue = "app/docuport/step_definitions",
         tags = "",
         dryRun = false
 )

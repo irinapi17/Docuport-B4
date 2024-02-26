@@ -33,6 +33,9 @@ Feature: Client creation feature
     And logout
     And Delete user from the database
 
+#    Scenario:
+#      Then Delete user from the database
+
 
 
 

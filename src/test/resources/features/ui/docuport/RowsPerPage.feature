@@ -1,6 +1,6 @@
-@docuport @B2G1-253 @B2G1-254 @ui @smoke
 Feature: Validate Rows Per Page
 
+  @docuport @B2G1-253 @B2G1-254 @ui @smoke
   Scenario Outline: Change and Validate Rows Per Page on Leads and Users for Supervisor and Advisor
     Given user logs into "<userType>"
     When user clicks "Leads" button
@@ -16,6 +16,7 @@ Feature: Validate Rows Per Page
       | advisor    |
       | supervisor |
 
+  @docuport @B2G1-253 @B2G1-254 @ui @smoke
   Scenario: Change and Validate Rows Per Page on Clients and Users for Employee
     Given user logs into "employee"
     When user clicks "Clients" button
